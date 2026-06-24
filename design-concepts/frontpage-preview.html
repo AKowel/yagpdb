@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Albert — front page preview</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0c0f14;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #eef1f5;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* banner */
+  .banner {
+    text-align: center;
+    padding: 14px;
+    background: #161b24;
+    color: #9aa4b2;
+    font-size: 13px;
+    border-bottom: 1px solid #2a3240;
+  }
+  .banner a { color: #c9a24b; }
+
+  /* navbar */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background: #11151c;
+    border-bottom: 1px solid #232b38;
+    position: sticky;
+    top: 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; }
+  .brand svg { width: 34px; height: 34px; }
+  .navlinks { display: flex; gap: 26px; font-size: 14px; color: #c3cad4; }
+  .navlinks a:hover { color: #f1d68c; }
+  .login-btn {
+    border: 1px solid #c9a24b;
+    color: #f1d68c;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* hero */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 90px 20px 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,162,75,0.18) 0%, rgba(201,162,75,0) 70%);
+    pointer-events: none;
+  }
+  .hero svg { width: 130px; height: 130px; margin-bottom: 22px; position: relative; }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin: 0 0 10px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #f1d68c, #c9a24b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+  }
+  .hero p.tag {
+    color: #b9c0cc;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0 0 36px;
+    position: relative;
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+  }
+  .stat {
+    border: 1px solid #2a3240;
+    background: #161b24;
+    border-radius: 10px;
+    padding: 16px 34px;
+    font-size: 14px;
+    color: #9aa4b2;
+  }
+  .stat b { display: block; font-size: 26px; color: #f1d68c; margin-bottom: 4px; }
+
+  /* about */
+  .about {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 70px 24px;
+    text-align: center;
+    border-top: 1px solid #1c222c;
+  }
+  .about svg { width: 90px; height: 90px; margin-bottom: 20px; }
+  .about h2 {
+    font-size: 28px;
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .about p {
+    color: #b9c0cc;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* features */
+  .features {
+    padding: 70px 24px 90px;
+    border-top: 1px solid #1c222c;
+  }
+  .features h2 {
+    text-align: center;
+    margin: 0 0 40px;
+    font-size: 28px;
+  }
+  .feature-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .feature-card {
+    background: #161b24;
+    border: 1px solid #2a3240;
+    border-radius: 10px;
+    padding: 22px 26px;
+  }
+  .feature-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #f1d68c;
+  }
+  .feature-card p {
+    margin: 0;
+    color: #9aa4b2;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    padding: 28px;
+    color: #6b7585;
+    font-size: 13px;
+    border-top: 1px solid #1c222c;
+  }
+  footer a { color: #9aa4b2; }
+</style>
+</head>
+<body>
+
+<div class="banner">Mockup preview — not the live site. &nbsp;<a href="index.html">&larr; back to logo concepts</a></div>
+
+<!-- shared mark, reused at three sizes below -->
+<template id="mark">
+  <svg viewBox="0 0 512 512">
+    <defs>
+      <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+      </linearGradient>
+      <linearGradient id="goldM" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+      </linearGradient>
+    </defs>
+    <circle cx="256" cy="256" r="248" fill="url(#bgM)" stroke="#c9a24b" stroke-width="8"/>
+    <circle cx="256" cy="195" r="72" fill="url(#goldM)"/>
+    <path d="M212 222 Q234 209 256 220 Q278 209 300 222 Q278 240 256 230 Q234 240 212 222 Z" fill="#121822"/>
+    <circle cx="286" cy="184" r="23" fill="none" stroke="#121822" stroke-width="6"/>
+    <line x1="306" y1="200" x2="320" y2="218" stroke="#121822" stroke-width="5" stroke-linecap="round"/>
+    <path d="M196 250 L256 284 L316 250 L316 232 L256 262 L196 232 Z" fill="#eef1f5"/>
+    <path d="M256 268 L212 252 L212 286 Z" fill="url(#goldM)"/>
+    <path d="M256 268 L300 252 L300 286 Z" fill="url(#goldM)"/>
+    <rect x="240" y="256" width="32" height="24" rx="6" fill="url(#goldM)" stroke="#121822" stroke-width="3"/>
+  </svg>
+</template>
+
+<nav>
+  <div class="brand">
+    <span class="navmark"></span>
+    Albert
+  </div>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#">Status</a>
+    <a href="#">Add to server</a>
+    <a href="#">Documentation</a>
+  </div>
+  <a class="login-btn" href="#">Login with Discord</a>
+</nav>
+
+<section class="hero">
+  <span class="heromark"></span>
+  <h1>Albert</h1>
+  <p class="tag">Always at your service.</p>
+  <div class="stats">
+    <div class="stat"><b>1</b>Joined Servers</div>
+    <div class="stat"><b>482</b>Commands ran today</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <span class="aboutmark"></span>
+  <h2>About Albert</h2>
+  <p>Albert is a multi-purpose Discord bot that quietly looks after your server. Moderation, custom
+    commands, role menus, feeds, and more, all handled without fuss. The best way to see what Albert does is to add
+    him to a server and look around for yourself.</p>
+  <p>Albert also keeps a watchful eye on the home server's media services, posting a live status embed, queue
+    updates, and service notifications, so nobody has to go check manually.</p>
+</section>
+
+<section class="features" id="features">
+  <h2>Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Automatic Moderator</h3>
+      <p>Configurable rules — mute, kick, or ban after a set number of violations within a timeframe.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Custom Commands</h3>
+      <p>Triggers, dynamic responses, aliases — set up automatic replies for whatever your server needs.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Server Stats</h3>
+      <p>Member activity, messages per channel, online counts — with graphs on the control panel.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Media Watch</h3>
+      <p>Live download-queue status, service health notifications, and presence updates for the home server.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>Albert</b> is powered by <a href="#">YAGPDB</a>, created by <a href="#">Jonas747</a> | Landing page design by <a href="#">Michdi</a>
+</footer>
+
+<script>
+  const markHTML = document.getElementById('mark').innerHTML;
+  document.querySelector('.navmark').innerHTML = markHTML;
+  document.querySelector('.heromark').innerHTML = markHTML;
+  document.querySelector('.aboutmark').innerHTML = markHTML;
+</script>
+
+</body>
+</html>
