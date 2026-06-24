@@ -1,0 +1,113 @@
+{{define "cp_kewelstatus_settings"}}
+{{template "cp_head" .}}
+<header class="page-header">
+    <h2>Kewel Status</h2>
+    <p>Radarr/Sonarr/download-queue status embed, notifications, and bot presence.</p>
+</header>
+
+{{template "cp_alerts" .}}
+
+<form role="form" method="post" action="/manage/{{.ActiveGuild.ID}}/kewelstatus/settings" data-async-form>
+    <div class="row">
+        <div class="col-lg-6">
+            <section class="card mb-3">
+                <header class="card-header">
+                    <h2 class="card-title">Channels &amp; polling</h2>
+                </header>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Live status embed channel</label>
+                        <select class="form-control" name="status_channel">
+                            {{textOnlyChannelOptions .ActiveGuild.Channels .Settings.StatusChannel false "None (disabled)"}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Default notification channel</label>
+                        <select class="form-control" name="notify_channel">
+                            {{textOnlyChannelOptions .ActiveGuild.Channels .Settings.NotifyChannel false "None (disabled)"}}
+                        </select>
+                        <small class="text-muted">Used for any notification type below that has no channel override set in its JSON.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Poll interval (seconds)</label>
+                        <input type="number" min="15" class="form-control" name="update_interval_secs" value="{{.Settings.UpdateIntervalSecs}}">
+                    </div>
+                    <div class="form-group">
+                        {{checkbox "drives_presence" "kewelstatus-drives-presence" "This server's queue drives the bot's rich presence" .Settings.DrivesPresence}}
+                        <small class="text-muted d-block">A bot has one presence shared across every server it's in — only enable this on the server you want controlling it.</small>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-lg-6">
+            <section class="card mb-3">
+                <header class="card-header">
+                    <h2 class="card-title">Radarr</h2>
+                </header>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Radarr URL</label>
+                        <input type="text" class="form-control" name="radarr_url" placeholder="http://radarr.local:7878" value="{{.Settings.RadarrURL}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Radarr API key</label>
+                        <input type="text" class="form-control" name="radarr_api_key" value="{{.Settings.RadarrAPIKey}}">
+                    </div>
+                </div>
+            </section>
+            <section class="card mb-3">
+                <header class="card-header">
+                    <h2 class="card-title">Sonarr</h2>
+                </header>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Sonarr URL</label>
+                        <input type="text" class="form-control" name="sonarr_url" placeholder="http://sonarr.local:8989" value="{{.Settings.SonarrURL}}">
+                    </div>
+                    <div class="form-group">
+                        <label>Sonarr API key</label>
+                        <input type="text" class="form-control" name="sonarr_api_key" value="{{.Settings.SonarrAPIKey}}">
+                    </div>
+                </div>
+            </section>
+            <section class="card mb-3">
+                <header class="card-header">
+                    <h2 class="card-title">Download queue</h2>
+                </header>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Queue API URL</label>
+                        <input type="text" class="form-control" name="queue_api_url" placeholder="https://queue.example.com" value="{{.Settings.QueueAPIURL}}">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="card mb-3">
+                <header class="card-header">
+                    <h2 class="card-title">Notifications</h2>
+                </header>
+                <div class="card-body">
+                    <p>
+                        Raw JSON config for the five notification types (downloadComplete, downloadWarning,
+                        newDownload, serviceDown, serviceUp). Each has <code>enabled</code>, an optional
+                        <code>channel</code> override, and an <code>embed</code> template using
+                        <code>{placeholder}</code> tokens.
+                    </p>
+                    <div class="form-group">
+                        <textarea rows="20" class="form-control" name="notifications_json" style="font-family: monospace;">{{.Settings.NotificationsJSON}}</textarea>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+</form>
+
+{{template "cp_footer" .}}
+{{end}}
