@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Albert — logo concepts</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0c0f14;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: #eef1f5;
+  }
+  .page-header {
+    text-align: center;
+    padding: 40px 20px 10px;
+  }
+  .page-header h1 {
+    margin: 0 0 6px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .page-header p {
+    color: #9aa4b2;
+    margin: 0;
+  }
+  .concept {
+    max-width: 980px;
+    margin: 50px auto;
+    border: 1px solid #2a3240;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a2230 0%, #10141c 100%);
+  }
+  .concept-label {
+    padding: 14px 24px;
+    background: #161b24;
+    border-bottom: 1px solid #2a3240;
+    font-size: 14px;
+    color: #c9a24b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 70px;
+    text-align: center;
+  }
+  .hero svg {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 24px;
+  }
+  .hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #f1d68c, #c9a24b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.tag {
+    color: #b9c0cc;
+    font-size: 16px;
+    margin: 0;
+    font-style: italic;
+  }
+  .concept-notes {
+    padding: 16px 24px 22px;
+    color: #8b95a3;
+    font-size: 13px;
+    border-top: 1px solid #2a3240;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Albert — rough logo concepts</h1>
+  <p>Five directions to scroll through. Nothing is final — open in a browser, compare, pick a favourite (or mix elements).</p>
+</div>
+
+<!-- Concept 1: Refined bowtie -->
+<div class="concept">
+  <div class="concept-label">Concept 1 — Minimal Bowtie</div>
+  <div class="hero">
+    <svg viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bg1)" stroke="#c9a24b" stroke-width="8"/>
+      <path d="M256 256 L130 170 L130 342 Z" fill="url(#gold1)"/>
+      <path d="M256 256 L382 170 L382 342 Z" fill="url(#gold1)"/>
+      <rect x="226" y="226" width="60" height="60" rx="10" fill="url(#gold1)" stroke="#121822" stroke-width="4"/>
+    </svg>
+    <h2>Albert</h2>
+    <p class="tag">Always at your service.</p>
+  </div>
+  <div class="concept-notes">Already live on the site today. Reads cleanly even as a 16px favicon. Safe, a little plain.</div>
+</div>
+
+<!-- Concept 2: Top hat crest -->
+<div class="concept">
+  <div class="concept-label">Concept 2 — Top Hat Crest</div>
+  <div class="hero">
+    <svg viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bg2)" stroke="#c9a24b" stroke-width="8"/>
+      <!-- top hat -->
+      <rect x="196" y="120" width="120" height="120" rx="6" fill="url(#gold2)"/>
+      <rect x="170" y="232" width="172" height="22" rx="6" fill="url(#gold2)"/>
+      <rect x="196" y="170" width="120" height="14" fill="#121822" opacity="0.5"/>
+      <!-- crossed canes -->
+      <line x1="160" y1="400" x2="300" y2="300" stroke="url(#gold2)" stroke-width="10" stroke-linecap="round"/>
+      <line x1="352" y1="400" x2="212" y2="300" stroke="url(#gold2)" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="160" cy="400" r="10" fill="url(#gold2)"/>
+      <circle cx="352" cy="400" r="10" fill="url(#gold2)"/>
+    </svg>
+    <h2>Albert</h2>
+    <p class="tag">Old-world manners, modern moderation.</p>
+  </div>
+  <div class="concept-notes">More "crest"/heraldic feel. Top hat is instantly butler-coded. Slightly busier at small sizes — may need simplifying for a 16px favicon.</div>
+</div>
+
+<!-- Concept 3: Gloved hand & tray -->
+<div class="concept">
+  <div class="concept-label">Concept 3 — Gloved Hand &amp; Tray</div>
+  <div class="hero">
+    <svg viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="gold3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bg3)" stroke="#c9a24b" stroke-width="8"/>
+      <!-- tray -->
+      <ellipse cx="256" cy="280" rx="100" ry="18" fill="url(#gold3)"/>
+      <path d="M186 280 Q186 230 256 230 Q326 230 326 280 Z" fill="none" stroke="url(#gold3)" stroke-width="8"/>
+      <!-- dome lid -->
+      <path d="M216 230 Q256 170 296 230 Z" fill="url(#gold3)"/>
+      <circle cx="256" cy="168" r="8" fill="url(#gold3)"/>
+      <!-- glove/hand under tray -->
+      <path d="M226 298 Q256 320 286 298 L286 314 Q256 332 226 314 Z" fill="#eef1f5"/>
+    </svg>
+    <h2>Albert</h2>
+    <p class="tag">Service, presented properly.</p>
+  </div>
+  <div class="concept-notes">Illustrative, evokes "serving"/hospitality directly. More detail-heavy — best for a larger logo (hero/OG image), would need a simplified version for the favicon.</div>
+</div>
+
+<!-- Concept 4: Gentleman face -->
+<div class="concept">
+  <div class="concept-label">Concept 4 — Monocle Gentleman</div>
+  <div class="hero">
+    <svg viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="gold4" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bg4)" stroke="#c9a24b" stroke-width="8"/>
+      <!-- face -->
+      <circle cx="256" cy="220" r="80" fill="url(#gold4)"/>
+      <!-- mustache -->
+      <path d="M206 250 Q230 235 256 248 Q282 235 306 250 Q282 270 256 258 Q230 270 206 250 Z" fill="#121822"/>
+      <!-- monocle -->
+      <circle cx="290" cy="210" r="26" fill="none" stroke="#121822" stroke-width="6"/>
+      <line x1="312" y1="228" x2="328" y2="248" stroke="#121822" stroke-width="5" stroke-linecap="round"/>
+      <!-- collar/bowtie -->
+      <path d="M196 320 L256 360 L316 320 L316 300 L256 336 L196 300 Z" fill="#eef1f5"/>
+      <rect x="240" y="312" width="32" height="14" rx="4" fill="url(#gold4)"/>
+    </svg>
+    <h2>Albert</h2>
+    <p class="tag">Distinguished. Discreet. Dependable.</p>
+  </div>
+  <div class="concept-notes">A mascot/character mark rather than an abstract icon. More personality and memorable, but a face icon reads as more "playful mascot" than the formal crest feel of 1-2.</div>
+</div>
+
+<!-- Concept 5: Monogram -->
+<div class="concept">
+  <div class="concept-label">Concept 5 — "A" Monogram + Bowtie</div>
+  <div class="hero">
+    <svg viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="gold5" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bg5)" stroke="#c9a24b" stroke-width="8"/>
+      <!-- A monogram -->
+      <path d="M256 130 L356 380 L312 380 L290 320 L222 320 L200 380 L156 380 Z M236 282 L276 282 L256 220 Z" fill="url(#gold5)"/>
+      <!-- tiny bowtie at the crossbar -->
+      <path d="M256 282 L236 270 L236 294 Z" fill="#121822"/>
+      <path d="M256 282 L276 270 L276 294 Z" fill="#121822"/>
+    </svg>
+    <h2>Albert</h2>
+    <p class="tag">A, for Albert.</p>
+  </div>
+  <div class="concept-notes">Wordmark-style, very legible as a brand initial at any size, easiest to also use for a wider logotype/letterhead-style treatment. Least "literally butler" of the five.</div>
+</div>
+
+<div style="text-align:center; padding: 10px 20px 70px; color:#6b7585; font-size:13px;">
+  Pure HTML/SVG mockups — nothing here is wired into the live site yet. Tell me which one (or which elements of which) and I'll build it out for real.
+</div>
+
+</body>
+</html>
