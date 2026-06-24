@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/botlabs-gg/yagpdb/v2/common"
+	"github.com/botlabs-gg/yagpdb/v2/bot"
 	"github.com/botlabs-gg/yagpdb/v2/lib/discordgo"
 )
 
@@ -126,12 +126,15 @@ func updatePresence(data []presenceGuildData) {
 		}
 	}
 
-	err := common.BotSession.UpdateStatusComplex(discordgo.UpdateStatusData{
-		IdleSince: idleSince,
-		Activity:  &activity,
-		Status:    status,
-	})
-	if err != nil {
-		logger.WithError(err).Error("kewelstatus: failed updating presence")
+	// A bot has one presence per shard connection, not one global presence — update
+	// every shard session the same way bot.RefreshStatus does for the built-in setstatus.
+	statusData := discordgo.UpdateStatusData{IdleSince: idleSince, Activity: &activity, Status: status}
+	for _, session := range bot.ShardManager.Sessions {
+		if session == nil {
+			continue
+		}
+		if err := session.UpdateStatusComplex(statusData); err != nil {
+			logger.WithError(err).Error("kewelstatus: failed updating presence")
+		}
 	}
 }
