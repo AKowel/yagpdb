@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Albert — GitHub social preview</title>
+<meta name="hz:slide-selector" content=".banner" />
+<meta name="hz:canvas-width" content="1280" />
+<meta name="hz:canvas-height" content="640" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+  body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #050608; }
+
+  .banner {
+    position: relative;
+    width: 1280px;
+    height: 640px;
+    background: linear-gradient(135deg, #1a2230 0%, #0c0f14 100%);
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+  }
+  .frame-outer { position: absolute; inset: 18px; border: 2px solid #c9a24b; pointer-events: none; }
+  .frame-inner { position: absolute; inset: 30px; border: 1px solid rgba(201,162,75,0.45); pointer-events: none; }
+  .sunburst { position: absolute; top: 0; left: 0; width: 1280px; height: 640px; }
+
+  .mark { position: absolute; left: 96px; top: 96px; width: 448px; height: 448px; }
+
+  .textblock {
+    position: absolute;
+    left: 620px;
+    top: 0;
+    width: 620px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kicker {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c9a24b;
+    margin-bottom: 16px;
+  }
+  .wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 104px;
+    letter-spacing: 7px;
+    line-height: 1;
+    background: linear-gradient(135deg, #f1d68c, #c9a24b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .rule { width: 130px; height: 2px; background: linear-gradient(90deg, #c9a24b, transparent); margin: 26px 0 20px; }
+  .tagline { font-family: 'Lato', sans-serif; font-style: italic; font-size: 25px; color: #b9c0cc; }
+</style>
+</head>
+<body>
+<div class="banner" data-canvas-width="1280" data-canvas-height="640">
+  <div class="frame-outer"></div>
+  <div class="frame-inner"></div>
+
+  <svg class="sunburst" viewBox="0 0 1280 640">
+    <line x1="560.0" y1="320.0" x2="730.0" y2="320.0" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="550.3" y1="387.6" x2="713.4" y2="435.5" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="521.9" y1="449.8" x2="664.9" y2="541.7" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="477.2" y1="501.4" x2="588.5" y2="629.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="419.7" y1="538.3" x2="490.3" y2="692.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="354.2" y1="557.6" x2="378.3" y2="725.8" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="285.8" y1="557.6" x2="261.7" y2="725.8" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="220.3" y1="538.3" x2="149.7" y2="692.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="162.8" y1="501.4" x2="51.5" y2="629.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="118.1" y1="449.8" x2="-24.9" y2="541.7" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="89.7" y1="387.6" x2="-73.4" y2="435.5" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="80.0" y1="320.0" x2="-90.0" y2="320.0" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="89.7" y1="252.4" x2="-73.4" y2="204.5" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="118.1" y1="190.2" x2="-24.9" y2="98.3" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="162.8" y1="138.6" x2="51.5" y2="10.1" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="220.3" y1="101.7" x2="149.7" y2="-52.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="285.8" y1="82.4" x2="261.7" y2="-85.8" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="354.2" y1="82.4" x2="378.3" y2="-85.8" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="419.7" y1="101.7" x2="490.3" y2="-52.9" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="477.2" y1="138.6" x2="588.5" y2="10.1" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="521.9" y1="190.2" x2="664.9" y2="98.3" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+    <line x1="550.3" y1="252.4" x2="713.4" y2="204.5" stroke="#c9a24b" stroke-width="1.5" opacity="0.14"/>
+  </svg>
+
+  <svg class="mark" viewBox="0 0 512 512">
+    <defs>
+      <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+      </linearGradient>
+      <linearGradient id="goldM" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+      </linearGradient>
+    </defs>
+    <circle cx="256" cy="256" r="248" fill="url(#bgM)" stroke="#c9a24b" stroke-width="8"/>
+    <circle cx="256" cy="240" r="106" fill="url(#goldM)"/>
+    <path d="M194 296 Q228 277 256 292 Q284 277 318 296 Q284 320 256 305 Q228 320 194 296 Z" fill="#121822"/>
+    <circle cx="300" cy="222" r="30" fill="none" stroke="#121822" stroke-width="7"/>
+    <line x1="322" y1="242" x2="340" y2="264" stroke="#121822" stroke-width="6" stroke-linecap="round"/>
+    <path d="M178 322 L256 358 L334 322 L334 300 L256 332 L178 300 Z" fill="#eef1f5"/>
+    <path d="M256 342 L168 316 L168 370 Z" fill="url(#goldM)"/>
+    <path d="M256 342 L344 316 L344 370 Z" fill="url(#goldM)"/>
+    <rect x="220" y="323" width="72" height="40" rx="10" fill="url(#goldM)" stroke="#121822" stroke-width="4"/>
+  </svg>
+
+  <div class="textblock">
+    <div class="kicker">Open Source Discord Bot</div>
+    <div class="wordmark">ALBERT</div>
+    <div class="rule"></div>
+    <div class="tagline">Always at your service.</div>
+  </div>
+</div>
+</body>
+</html>
