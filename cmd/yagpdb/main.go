@@ -28,6 +28,7 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/commands"
 	"github.com/botlabs-gg/yagpdb/v2/customcommands"
 	"github.com/botlabs-gg/yagpdb/v2/discordlogger"
+	"github.com/botlabs-gg/yagpdb/v2/kewelstatus"
 	"github.com/botlabs-gg/yagpdb/v2/logs"
 	"github.com/botlabs-gg/yagpdb/v2/messagecreator"
 	"github.com/botlabs-gg/yagpdb/v2/moderation"
@@ -68,6 +69,7 @@ func main() {
 	safebrowsing.RegisterPlugin()
 	antiphishing.RegisterPlugin()
 	discordlogger.Register()
+	kewelstatus.RegisterPlugin()
 	commands.RegisterPlugin()
 	stdcommands.RegisterPlugin()
 	serverstats.RegisterPlugin()
