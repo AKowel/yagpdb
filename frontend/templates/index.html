@@ -20,265 +20,375 @@
   <meta property="og:title" content="Albert" />
   <meta property="og:description" content="Albert keeps your server in order." />
   <!-- For Social Media -->
-  <meta property="description" content="Albert keeps your server in order." />
+  <meta property="description" content="Albert keeps your server in order.">
   <!-- For search engines -->
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-    crossorigin="anonymous">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/static/css/landing-page-min.css">
-  <!-- Custom Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,500,700|Poppins:500,700" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   <title>Albert</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #0c0f14;
+      color: #d7dbe2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navbar */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      background: #11151ce6;
+      border-bottom: 1px solid #232b38;
+      backdrop-filter: none;
+    }
+    .site-nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; }
+    .site-nav .brand img { width: 38px; height: 38px; }
+    .nav-mobile-menu { display: contents; }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-size: 15px; color: #c3cad4; }
+    .nav-links a:hover { color: #f1d68c; }
+    .nav-links .premium-color { color: #c9a24b; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-outline {
+      border: 1px solid #c9a24b;
+      color: #f1d68c;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .btn-outline:hover { background: rgba(201,162,75,0.12); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #f1d68c;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .nav-mobile-menu {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        flex-direction: column;
+        background: #11151c;
+        border-bottom: 1px solid #232b38;
+      }
+      .nav-mobile-menu.open { display: flex; }
+      .nav-links { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 28px; }
+      .nav-actions { flex-direction: column; align-items: stretch; padding: 0 28px 20px; gap: 10px; }
+      .nav-toggle { display: block; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 150px 20px 90px;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a2230 0%, #0c0f14 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,162,75,0.16) 0%, rgba(201,162,75,0) 70%);
+      pointer-events: none;
+    }
+    .hero-mark { width: 150px; height: 150px; position: relative; margin-bottom: 18px; }
+    .hero h1.brand-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 64px;
+      letter-spacing: 4px;
+      line-height: 1;
+      margin: 0 0 10px;
+      background: linear-gradient(135deg, #f1d68c, #c9a24b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+    }
+    .hero .intro_headline {
+      font-style: italic;
+      font-size: 19px;
+      color: #b9c0cc;
+      margin: 0 0 40px;
+      position: relative;
+    }
+    .hero .demo-link { position: relative; margin-bottom: 30px; }
+    .hero .demo-link a { color: #c9a24b; text-decoration: underline; }
+    .stats { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; position: relative; }
+    .stat {
+      border: 1px solid #2a3240;
+      background: #161b24;
+      border-radius: 10px;
+      padding: 16px 34px;
+      font-size: 14px;
+      color: #9aa4b2;
+    }
+    .stat b { display: block; font-size: 28px; color: #f1d68c; margin-bottom: 4px; }
+
+    /* About */
+    .about-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid #1c222c;
+    }
+    .about-section img.aboutlogo { width: 96px; height: 96px; margin-bottom: 22px; }
+    .about-section h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 30px; margin: 0 0 20px; color: #eef1f5; }
+    .about-section p { color: #b9c0cc; line-height: 1.75; font-size: 16px; margin-bottom: 16px; }
+
+    /* Features */
+    .features-section { padding: 70px 24px 40px; border-top: 1px solid #1c222c; }
+    .features-section .feature_title { text-align: center; font-family: 'Playfair Display', serif; font-size: 30px; letter-spacing: 3px; color: #eef1f5; margin-bottom: 50px; }
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      flex-wrap: wrap;
+    }
+    .feature-row.reverse { flex-direction: row-reverse; }
+    .feature-text { flex: 1 1 320px; }
+    .feature-text h3 { font-family: 'Playfair Display', serif; color: #f1d68c; font-size: 22px; margin-bottom: 12px; }
+    .feature-text p, .feature-text ul { color: #b9c0cc; font-size: 15px; line-height: 1.7; }
+    .feature-text ul { padding-left: 20px; margin-top: 6px; }
+    .feature-text a.link { color: #c9a24b; text-decoration: underline; }
+    .feature-img { flex: 1 1 320px; }
+    .feature-img img { width: 100%; border-radius: 8px; border: 1px solid #232b38; display: block; }
+    .feature-divider { text-align: center; font-size: 20px; color: #9aa4b2; margin: 40px 0; }
+
+    /* FAQ */
+    .faq-section { max-width: 760px; margin: 0 auto; padding: 50px 24px 90px; }
+    .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 24px; color: #eef1f5; margin-bottom: 16px; text-align: center; }
+    .faq-section ul { color: #b9c0cc; font-size: 15px; line-height: 1.8; list-style: none; text-align: center; }
+    .faq-section a.link { color: #c9a24b; text-decoration: underline; }
+  </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-dark navbar-expand-sm fixed-top">
-    <a class="navbar-brand" href="#">
-      <img src="/static/img/logo_y_small.png?v=8" width="50" height="50" class="d-inline-block align-top" alt="Albert">
+  <nav class="site-nav">
+    <a class="brand" href="#">
+      <img src="/static/img/logo_y_small.png?v=8" alt="Albert">
+      Albert
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse poppins" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a id="link_to_about" class="nav-link js-anchor-link" href="#about">About</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link js-anchor-link" href="#features">Features</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/status">Status</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="https://discordapp.com/oauth2/authorize?client_id={{.ClientID}}&scope=applications.commands%20bot&permissions=1516122532343&response_type=code&redirect_uri={{urlquery (print "https://" .Host "/manage")}}">Add to server</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="https://help.yagpdb.xyz">Documentation</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/premium-perks"> <span class="premium-color"> Premium </span></a>
-        </li>
-      </ul>
-      {{if .User}}
-      <form class="form-inline my-2 my-lg-0 mr-2">
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/manage">Control Panel</a>
-      </form>
-      <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Logout</a>
-      </form>
-      {{else}}
-      <form class="form-inline my-2 my-lg-0 mr-2">
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/login?goto={{urlquery "/manage"}}">Login with Discord</a>
-      </form>
-      {{end}}
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-mobile-menu" id="navMobileMenu">
+      <div class="nav-links">
+        <a class="js-anchor-link" href="#about">About</a>
+        <a class="js-anchor-link" href="#features">Features</a>
+        <a href="/status">Status</a>
+        <a href="https://discordapp.com/oauth2/authorize?client_id={{.ClientID}}&scope=applications.commands%20bot&permissions=1516122532343&response_type=code&redirect_uri={{urlquery (print "https://" .Host "/manage")}}">Add to server</a>
+        <a href="https://help.yagpdb.xyz">Documentation</a>
+        <a href="/premium-perks"><span class="premium-color">Premium</span></a>
+      </div>
+      <div class="nav-actions">
+        {{if .User}}
+        <a class="btn-outline" href="/manage">Control Panel</a>
+        <a class="btn-outline" href="/logout">Logout</a>
+        {{else}}
+        <a class="btn-outline" href="/login?goto={{urlquery "/manage"}}">Login with Discord</a>
+        {{end}}
+      </div>
     </div>
   </nav>
-  <!-- Intro -->
-  <div id="tscene" class="intro centered">
-    <header class="centered">
-      <div id="introo">
-        <div class="container centered">
-          <div class="row justify-content-md-center">
-            <div class="col col-md-10">
-              <h1 class="brand-heading bold intro_head">
-                <br/>Albert</h1>
-              <p class="intro_headline">Always at your service.</p>
-            </div>
-          </div>
-          {{if ne .DemoServerID "0"}}<div class="row justify-content-md-center">
-            <div class="col col-md-10">
-              <p class="intro-text poppins"><a href="/manage/{{.DemoServerID}}/home">Click here for a live demo of the control panel</a></p>
-            </div>
-          </div>{{end}}
-          <div class="row justify-content-md-center">
-            <div class="col col-md-5">
-              <div class="numberbutton">
-                <img src="/static/img/button.png" alt="" class="btn_img">
-                <p class="intro-text poppins bold numbercentered">Joined Servers
-                  <br> {{.JoinedServers}}</p>
-              </div>
-            </div>
-            <div class="col col-md-5">
-              <div class="numberbutton">
-                <img src="/static/img/button.png" alt="" class="btn_img">
-                <p class="intro-text poppins bold numbercentered">Commands ran today
-                  <br> {{.Commands}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- Parallax Moving Background -->
-    <div id="m_background" data-depth="0.2"></div>
-  </div>
-  <!-- About -->
-  <div class="about">
-    <section class="container content-section text-center">
-      <a id="about"></a>
-      <img class="img-responsive about aboutlogo" src="/static/img/logo_y.png?v=8" alt="Albert logo">
-      <div class="row justify-content-md-center">
-        <div class="col col-lg-8 abouttext" style="padding-bottom: 3%;">
-          <h2 class="about poppins semibold">About Albert</h2>
-          <p class="about">Albert is a multi-purpose Discord bot that quietly looks after your server. Moderation, custom
-            commands, role menus, feeds, and more, all handled without fuss. The best way to see what Albert does is to add
-            him to a server and look around for yourself.</p>
-          <p class="about">
-            Albert also keeps a watchful eye on the home server's media services, posting a live status embed, queue
-            updates, and service notifications, so nobody has to go check manually.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- Features -->
-  <div class="blank">
-    <a id="features"></a>
-    <section id="features_desktop" class="o_container content-section features">
-      <div class="row justify-content-md-center">
-        <div class="col col-lg-12">
-          <h2 class="feature_title semibold">
-            <b>FEATURES</b>
-          </h2>
-        </div>
-      </div>
-      <div id="reddit_feed" class="feature_element_l">
-        <div class="text-left redbox first">
-          <h3>Feeds</h3>
-          <ul>
-            <li>Fast Reddit feeds (within one minute)</li>
-            <li>Fast YouTube feeds (within a few minutes)</li>
-            <li>Join / Leave messages in a specific channel (configurable)</li>
-            <li>Direct messages on join (configurable)</li>
-          </ul>
-        </div>
-        <img src="/static/img/reddit feed1.png" class="img-fluid f_image_r second" alt="Example of Reddit Feed from r/discordapp">
-        <img src="/static/img/line1.png" class="img-fluid line_image line1" alt="line">
-      </div>
-      <div id="rolemenu" class="feature_element_r">
-        <img src="/static/img/rolemenu1.png" class="img-fluid f_image_l second" alt="Role Menu with reactions">
-        <div class="redbox text_right first">
-          <h3>Self-assignable Roles</h3>
-          <p>This feature is very advanced. You can either give yourself a role with a command or with a role menu:</p>
-          <ul>
-            <li>Group in several groups for multiple menus</li>
-            <li>Assign the roles via reactions on a message (role menu)</li>
-            <li>Different modes like single or multiple roles at once</li>
-            <li>Advanced options like require role or ignore role per group or role</li>
-          </ul>
-        </div>
-        <img src="/static/img/line4.png" class="img-fluid line_image line2" alt="line">
-      </div>
-      <div id="automod" class="feature_element_l">
-        <div class="text-left redbox first">
-          <h3>Automatic Moderator</h3>
-          <p>Albert has a very configurable automoderator, for each rule you can set automoderator to mute, kick or ban after
-            a certain number of violations within a certain timeframe.</p>
-          <p>
-            <b>
-              <a href="https://help.yagpdb.xyz/docs/moderation/advanced-automoderator/" target="_blank" rel="noopener" class="link">Click here for a list of rules, conditions, and effects</a>
-            </b>
-          </p>
-        </div>
-        <img src="/static/img/automod1.png" class="img-fluid f_image_r second" alt="Auto Moderator in action">
-        <img src="/static/img/line1.png" class="img-fluid line_image line3" alt="line">
-      </div>
-      <div id="customcommands" class="feature_element_r">
-        <img src="/static/img/custom commands1.png" class="img-fluid f_image_l second" alt="Custom Command example with invite">
-        <div class="redbox text_right first">
-          <h3>Custom Commands</h3>
-          <ul>
-            <li>Triggers: Starts with, Contains, Exact match or Regex</li>
-            <li>Dynamic response</li>
-            <li>Useful for automatic responses to questions, command aliases or other fun stuff</li>
-          </ul>
-          <p>
-            <b>
-              <a href="https://help.yagpdb.xyz/docs/reference/custom-commands-examples/" target="_blank" rel="noopener" class="link">Click here for custom command examples</a>
-            </b>
-          </p>
-        </div>
-        <img src="/static/img/line4.png" class="img-fluid line_image line4" alt="line">
-      </div>
-      <div id="serverstats" class="feature_element_l">
-        <div class="text-left redbox first">
-          <h3>Server Stats</h3>
-          <ul>
-            <li>Stats: Members joined / left, messages in the last 24h per channel, members online</li>
-            <li>Optionally make stats public</li>
-            <li>Graphs with message overview on the control panel</li>
-          </ul>
-        </div>
-        <img src="/static/img/stats1.png" class="img-fluid f_image_r second" alt="Example of the status command">
-        <img src="/static/img/line5.png" class="img-fluid line_image line5" alt="line">
-      </div>
-      <div id="general_moderation" class="feature_element_r">
-        <img src="/static/img/moderation1.png" class="img-fluid f_image_l second" alt="Example of Moderation with Albert">
-        <div class="redbox text_right first">
-          <h3>General Moderation</h3>
-          <ul>
-            <li>Kick, Ban and Clean</li>
-            <li>Advanced cleaning parameters</li>
-            <li>Timed mutes and bans</li>
-            <li>Modlog with kicks, bans, mutes and warnings</li>
-            <li>Message to the person being warned / kicked / muted / banned</li>
-            <li>Message logs</li>
-            <li>Warnings</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row feature_item">
-        <div class="col-lg-12">
-          <h2 class="centered big_margin">And finally, a personal favourite:</h2>
-        </div>
-      </div>
-      <div id="catfacts" class="feature_element_r">
-        <img src="/static/img/cat fact1.png" class="img-fluid f_image_l second" alt="A random cat fact">
-        <div class="redbox text_right first">
-          <h3>Cat Facts</h3>
-          <p>Because every good butler knows a bit of trivia. Over
-            <b>250</b> different cat facts on tap.</p>
-        </div>
-      </div>
-    </section>
-    <!-- Questions and short FAQ -->
-    <div class="questions">
-      <section id="other" class="container content-section ">
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-12 ">
-            <h2>Have questions? Check out these links!</h2>
-            <ul>
-              <li>The underlying templating/command documentation can be found at
-                <a class="link" href="https://help.yagpdb.xyz/">help.yagpdb.xyz</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
-    <!-- jQuery, Popper.Js, Bootstrap and Parallax -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="/static/vendorr/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <!-- Javascript for moving background (parallax) -->
-    <script>
-      var scene = document.getElementById('tscene');
-      var parallaxInstance = new Parallax(tscene, {
-        relativeInput: true,
-        hoverOnly: true,
-        pointerEvents: true
+  <!-- Hero -->
+  <header class="hero">
+    <svg class="hero-mark" viewBox="0 0 512 512">
+      <defs>
+        <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#222b3a"/><stop offset="100%" stop-color="#121822"/>
+        </linearGradient>
+        <linearGradient id="goldM" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f1d68c"/><stop offset="100%" stop-color="#c9a24b"/>
+        </linearGradient>
+      </defs>
+      <circle cx="256" cy="256" r="248" fill="url(#bgM)" stroke="#c9a24b" stroke-width="8"/>
+      <circle cx="256" cy="240" r="106" fill="url(#goldM)"/>
+      <path d="M194 296 Q228 277 256 292 Q284 277 318 296 Q284 320 256 305 Q228 320 194 296 Z" fill="#121822"/>
+      <circle cx="300" cy="222" r="30" fill="none" stroke="#121822" stroke-width="7"/>
+      <line x1="322" y1="242" x2="340" y2="264" stroke="#121822" stroke-width="6" stroke-linecap="round"/>
+      <path d="M178 322 L256 358 L334 322 L334 300 L256 332 L178 300 Z" fill="#eef1f5"/>
+      <path d="M256 342 L168 316 L168 370 Z" fill="url(#goldM)"/>
+      <path d="M256 342 L344 316 L344 370 Z" fill="url(#goldM)"/>
+      <rect x="220" y="323" width="72" height="40" rx="10" fill="url(#goldM)" stroke="#121822" stroke-width="4"/>
+    </svg>
+    <h1 class="brand-heading">Albert</h1>
+    <p class="intro_headline">Always at your service.</p>
+    {{if ne .DemoServerID "0"}}
+    <p class="demo-link"><a href="/manage/{{.DemoServerID}}/home">Click here for a live demo of the control panel</a></p>
+    {{end}}
+    <div class="stats">
+      <div class="stat"><b>{{.JoinedServers}}</b>Joined Servers</div>
+      <div class="stat"><b>{{.Commands}}</b>Commands ran today</div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about-section">
+    <a id="about"></a>
+    <img class="aboutlogo" src="/static/img/logo_y.png?v=8" alt="Albert logo">
+    <h2>About Albert</h2>
+    <p>Albert is a multi-purpose Discord bot that quietly looks after your server. Moderation, custom
+      commands, role menus, feeds, and more, all handled without fuss. The best way to see what Albert does is to add
+      him to a server and look around for yourself.</p>
+    <p>Albert also keeps a watchful eye on the home server's media services, posting a live status embed, queue
+      updates, and service notifications, so nobody has to go check manually.</p>
+  </section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <a id="features"></a>
+    <h2 class="feature_title">Features</h2>
+
+    <div class="feature-row">
+      <div class="feature-text">
+        <h3>Feeds</h3>
+        <ul>
+          <li>Fast Reddit feeds (within one minute)</li>
+          <li>Fast YouTube feeds (within a few minutes)</li>
+          <li>Join / Leave messages in a specific channel (configurable)</li>
+          <li>Direct messages on join (configurable)</li>
+        </ul>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/reddit feed1.png" alt="Example of Reddit Feed from r/discordapp">
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-text">
+        <h3>Self-assignable Roles</h3>
+        <p>This feature is very advanced. You can either give yourself a role with a command or with a role menu:</p>
+        <ul>
+          <li>Group in several groups for multiple menus</li>
+          <li>Assign the roles via reactions on a message (role menu)</li>
+          <li>Different modes like single or multiple roles at once</li>
+          <li>Advanced options like require role or ignore role per group or role</li>
+        </ul>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/rolemenu1.png" alt="Role Menu with reactions">
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-text">
+        <h3>Automatic Moderator</h3>
+        <p>Albert has a very configurable automoderator, for each rule you can set automoderator to mute, kick or ban after
+          a certain number of violations within a certain timeframe.</p>
+        <p><b><a href="https://help.yagpdb.xyz/docs/moderation/advanced-automoderator/" target="_blank" rel="noopener" class="link">Click here for a list of rules, conditions, and effects</a></b></p>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/automod1.png" alt="Auto Moderator in action">
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-text">
+        <h3>Custom Commands</h3>
+        <ul>
+          <li>Triggers: Starts with, Contains, Exact match or Regex</li>
+          <li>Dynamic response</li>
+          <li>Useful for automatic responses to questions, command aliases or other fun stuff</li>
+        </ul>
+        <p><b><a href="https://help.yagpdb.xyz/docs/reference/custom-commands-examples/" target="_blank" rel="noopener" class="link">Click here for custom command examples</a></b></p>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/custom commands1.png" alt="Custom Command example with invite">
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-text">
+        <h3>Server Stats</h3>
+        <ul>
+          <li>Stats: Members joined / left, messages in the last 24h per channel, members online</li>
+          <li>Optionally make stats public</li>
+          <li>Graphs with message overview on the control panel</li>
+        </ul>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/stats1.png" alt="Example of the status command">
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-text">
+        <h3>General Moderation</h3>
+        <ul>
+          <li>Kick, Ban and Clean</li>
+          <li>Advanced cleaning parameters</li>
+          <li>Timed mutes and bans</li>
+          <li>Modlog with kicks, bans, mutes and warnings</li>
+          <li>Message to the person being warned / kicked / muted / banned</li>
+          <li>Message logs</li>
+          <li>Warnings</li>
+        </ul>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/moderation1.png" alt="Example of Moderation with Albert">
+      </div>
+    </div>
+
+    <div class="feature-divider">And finally, a personal favourite:</div>
+
+    <div class="feature-row">
+      <div class="feature-text">
+        <h3>Cat Facts</h3>
+        <p>Because every good butler knows a bit of trivia. Over <b>250</b> different cat facts on tap.</p>
+      </div>
+      <div class="feature-img">
+        <img src="/static/img/cat fact1.png" alt="A random cat fact">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2>Have questions? Check out these links!</h2>
+    <ul>
+      <li>The underlying templating/command documentation can be found at
+        <a class="link" href="https://help.yagpdb.xyz/">help.yagpdb.xyz</a>
+      </li>
+    </ul>
+  </section>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.getElementById('navMobileMenu').classList.toggle('open');
+    });
+    document.querySelectorAll('.js-anchor-link').forEach(function (el) {
+      el.addEventListener('click', function () {
+        document.getElementById('navMobileMenu').classList.remove('open');
       });
-    </script>
-    {{template "googleAnalytics" .}}
+    });
+  </script>
+  {{template "googleAnalytics" .}}
 </body>
 </html>
-
-
 {{end}} {{define "googleAnalytics"}}{{if and (not .Testing) .GAID}}
 <script>
   (function (i, s, o, g, r, a, m) {
